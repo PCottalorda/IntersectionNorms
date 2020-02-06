@@ -1,0 +1,3 @@
+[submodule "external/cytoscape.js"]
+	path = external/cytoscape.js
+	url = git://github.com/cytoscape/cytoscape.js
