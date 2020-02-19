@@ -1,0 +1,25 @@
+{
+  "name": "intersection_norm",
+  "version": "0.0.1",
+  "description": "This project, currently in alpha, aims at creating a frontend to experiment with intersection norms on orientable 2-manifolds",
+  "main": "index.js",
+  "dependencies": {
+    "@types/cytoscape": "^3.14.0",
+    "big-rational": "^0.10.9",
+    "cytoscape": "^3.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PCottalorda/IntersectionNorms.git"
+  },
+  "author": "Paul Cottalorda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PCottalorda/IntersectionNorms/issues"
+  },
+  "homepage": "https://github.com/PCottalorda/IntersectionNorms#readme"
+}
