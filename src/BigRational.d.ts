@@ -1,17 +1,17 @@
 /**
- * Type definitions for BigInteger.js
- * Definitions by: Tommy Frazier <https://github.com/toefraz>
+ * Type definitions for BigRational.js
+ * Definitions by: Paul Cottalorda <https://github.com/PCottalorda>
  */
-export = bigInt;
-export as namespace bigInt;
+export = bigRat;
+export as namespace bigRat;
 
-declare var bigInt: bigInt.BigIntegerStatic;
+declare var bigRat: bigRat.BigRationalStatic;
 
-declare namespace bigInt {
+declare namespace bigRat {
     
-	type BigNumber = number | string | BigInteger;
+	type BigNumber = number | string | BigRational;
 
-    interface BigIntegerStatic {
+    interface BigRationalStatic {
         /**
          * Equivalent to bigRat(0).
          */
@@ -35,7 +35,7 @@ declare namespace bigInt {
 		 *     - a mixed fraction such as "1_1/2"
 		 *     - a decimal number such as "54.05446"
          */
-        (string: string): BigInteger;
+        (string: string): BigRational;
 
         /**
          * no-op.
@@ -207,7 +207,8 @@ declare namespace bigInt {
         equals(num: BigNumber, denom: BigNumber): boolean;
 
 		/**
-		 * Rounds down to the nearest integer. If the toBigInt argument is true, then it will return a bigInteger instead of a bigRational.
+		 * Rounds down to the nearest integer. If the toBigInt argument
+		 * is true, then it will return a bigInteger instead of a bigRational.
 		 */
 		floor(toBigInt?: boolean) : BigInteger | BigRational;
 		
@@ -351,147 +352,179 @@ declare namespace bigInt {
         /**
          * Alias for the subtract method.
          */
-        minus(number: BigNumber): BigInteger;
+        minus(number: BigNumber): BigRational;
+		
+		/**
+         * Alias for the subtract method.
+         */
+        minus(number: BigRational): BigRational;
+		
+		/**
+         * Alias for the subtract method.
+         */
+        minus(num: BigNumber, denom: BigNumber): BigRational;
 
         /**
-         * Performs division and returns the remainder, disregarding the quotient.
-         * The sign of the remainder will match the sign of the dividend.
+         * Performs the modulo operation
          */
-        mod(number: BigNumber): BigInteger;
-
-        /**
-         * Finds the multiplicative inverse of the number modulo mod.
+        mod(number: BigNumber): BigRational;
+		
+		/**
+         * Performs the modulo operation
          */
-        modInv(number: BigNumber): BigInteger;
-
-        /**
-         * Takes the number to the power exp modulo mod.
+        mod(number: BigRational): BigRational;
+		
+		/**
+         * Performs the modulo operation
          */
-        modPow(exp: BigNumber, mod: BigNumber): BigInteger;
+        mod(num: BigNumber, denom: BigNumber): BigRational;
 
         /**
          * Performs multiplication.
          */
-        multiply(number: BigNumber): BigInteger;
+        multiply(number: BigNumber): BigRational;
+		
+		/**
+         * Performs multiplication.
+         */
+        multiply(number: BigRational): BigRational;
+		
+		/**
+         * Performs multiplication.
+         */
+        multiply(num: BigNumber, denom: BigNumber): BigRational;
 
         /**
          * Reverses the sign of the number.
          */
-        negate(): BigInteger;
+        negate(): BigRational;
 
         /**
          * Alias for the notEquals method.
          */
         neq(number: BigNumber): boolean;
-
-        /**
-         * Adds one to the number.
+		
+		/**
+         * Alias for the notEquals method.
          */
-        next(): BigInteger;
-
-        /**
-         * Performs the bitwise NOT operation.
+        neq(number: BigRational): boolean;
+		
+		/**
+         * Alias for the notEquals method.
          */
-        not(): BigInteger;
+        neq(num: BigNumber, denom: BigNumber): boolean;
 
         /**
          * Checks if two numbers are not equal.
          */
         notEquals(number: BigNumber): boolean;
-
-        /**
-         * Performs the bitwise OR operation.
+		
+		/**
+         * Checks if two numbers are not equal.
          */
-        or(number: BigNumber): BigInteger;
+        notEquals(number: BigRational): boolean;
+		
+		/**
+         * Checks if two numbers are not equal.
+         */
+        notEquals(num: BigNumber, denom: BigNumber): boolean;
 
         /**
          * Alias for the divide method.
          */
-        over(number: BigNumber): BigInteger;
+        over(number: BigNumber): BigRational;
+		
+		/**
+         * Alias for the divide method.
+         */
+        over(number: BigRational): BigRational;
+		
+		/**
+         * Alias for the divide method.
+         */
+        over(num: BigNumber, denom: BigNumber): BigRational;
 
         /**
          * Alias for the add method.
          */
-        plus(number: BigNumber): BigInteger;
+        plus(number: BigNumber): BigRational;
+		
+		/**
+         * Alias for the add method.
+         */
+        plus(number: BigRational): BigRational;
+		
+		/**
+         * Alias for the add method.
+         */
+        plus(num: BigNumber, denom: BigNumber): BigRational;
 
         /**
-         * Performs exponentiation. If the exponent is less than 0, pow returns 0.
-         * bigInt.zero.pow(0) returns 1.
+         * Performs exponentiation. The argument is parsed as a bigInt
          */
-        pow(number: BigNumber): BigInteger;
+        pow(number: BigNumber): BigRational;
 
         /**
-         * Subtracts one from the number.
+         * Returns the reciprocal of a number
          */
-        prev(): BigInteger;
+        reciprocate(): BigRational;
 
-        /**
-         * Alias for the mod method.
+		/**
+		 * Rounds a number to the nearest integer.
+		 * If the number is exactly half-way between two integers, it will round up.
+		 * If the toBigInt argument is true, then it will return a bigInteger instead of a bigRational.
          */
-        remainder(number: BigNumber): BigInteger;
-
-        /**
-         * Shifts the number left by n places in its binary representation.
-         * If a negative number is provided, it will shift right.
-         *
-         * Throws an error if number is outside of the range [-9007199254740992, 9007199254740992].
-         */
-        shiftLeft(number: BigNumber): BigInteger;
-
-        /**
-         * Shifts the number right by n places in its binary representation.
-         * If a negative number is provided, it will shift left.
-         *
-         * Throws an error if number is outside of the range [-9007199254740992, 9007199254740992].
-         */
-        shiftRight(number: BigNumber): BigInteger;
-
-        /**
-         * Squares the number.
-         */
-        square(): BigInteger;
+        round(toBigInt?: boolean): BigInteger | BigRational;
 
         /**
          * Performs subtraction.
          */
-        subtract(number: BigNumber): BigInteger;
+        subtract(number: BigNumber): BigRational;
+		
+		/**
+         * Performs subtraction.
+         */
+        subtract(number: BigRational): BigRational;
+		
+		/**
+         * Performs subtraction.
+         */
+        subtract(num: BigNumber, denom: BigNumber): BigRational;
 
         /**
          * Alias for the multiply method.
          */
-        times(number: BigNumber): BigInteger;
-
-        /**
-         *
-         * Converts a bigInt to an object representing it as an array of integers module the given radix.
-         */
-        toArray(radix: number): BaseArray;
-
-        /**
-         * Converts a bigInt into a native Javascript number. Loses precision for numbers outside the range.
-         */
-        toJSNumber(): number;
-
-        /**
-         * Converts a bigInt to a string.
-         */
-        toString(radix?: number, alphabet?: string): string;
-
+        times(number: BigNumber): BigRational;
+		
 		/**
-         * Converts a bigInt to a string. This method is called behind the scenes in JSON.stringify.
+         * Alias for the multiply method.
          */
-        toJSON(): string;
+        times(number: BigRational): BigRational;
+		
+		/**
+         * Alias for the multiply method.
+         */
+        times(num: BigNumber, denom: BigNumber): BigRational;
 
         /**
-         * Converts a bigInt to a native Javascript number. This override allows you to use native
-         * arithmetic operators without explicit conversion.
+         * Converts a bigRational to a string in decimal notation, cut off after
+		 * the number of digits specified in the digits argument.
+		 * The default number of digits is 10.
+         */
+        toDecimal(digits?: number): String
+
+        /**
+         * Converts a bigRat to a string in "numerator/denominator" notation.
+         */
+        toString(): string;
+
+        /**
+         * Converts a bigRat to a native Javascript number.
+		 * This override allows you to use native arithmetic operators without
+		 * explicit conversion:
          */
         valueOf(): number;
 
-        /**
-         * Performs the bitwise XOR operation.
-         */
-        xor(number: BigNumber): BigInteger;
     }
 
 }
