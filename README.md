@@ -1,8 +1,9 @@
 ## IntersectionNorms
 
-The aim of this project is to provides tools to compute intersection norms on orientable 2-manifold without boundaries.
+The aim of this project is to provides frontend web-based tools to compute intersection norms on orientable 2-manifold without boundaries.
+It is meant to make the exploration of such mathematical object easier
 
-** WARNING: This project is at a (very) early development stage and is not functional. **
+** WARNING: This project is in a (very) early development stage and is not functional. **
 
 ## Built with
 
