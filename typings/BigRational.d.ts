@@ -2,6 +2,7 @@
  * Type definitions for BigRational.js
  * Definitions by: Paul Cottalorda <https://github.com/PCottalorda>
  */
+
 export = bigRat;
 export as namespace bigRat;
 

@@ -1,9 +1,16 @@
-import BigRational = bigRat.BigRational
+/**
+ * This file provides tools useful to do affine geometry
+ * it is meant in the project to be use to construct the
+ * graph related to the lacet in the geometry
+ */
+ 
+const bigRat = require('big-rational');
+import BigRational = bigRat.BigRational;
 
 /**
  * Represent a point in Q^2 seen as an affine space
  */
-class Q2Point {
+export class Q2Point {
 	
 	x: BigRational;
 	y: BigRational;
@@ -25,7 +32,7 @@ class Q2Point {
 /**
  * Respresents a vector in Q^2 seen as an affine space
  */
-class Q2Vector {
+export class Q2Vector {
 	
 	x : BigRational;
 	y : BigRational;
@@ -99,14 +106,14 @@ class Q2Vector {
 	}
 }
 
-class Nothing {}
+export class Nothing {}
 
 
 
 /**
  * Respresents an oriented segment in Q^2
  */
-class Q2Segment {
+export class Q2Segment {
 	
 	p0 : Q2Point
 	p1 : Q2Point
