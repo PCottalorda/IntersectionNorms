@@ -106,7 +106,7 @@ export class Q2Vector {
 	}
 }
 
-export class Nothing {}
+export class NoIntersection {}
 
 
 
@@ -171,16 +171,16 @@ export class Q2Segment {
 	 *
 	 * WARNING: Incomplete !!!
 	 */
-	intersection(s: Q2Segment) : Nothing | Q2Segment | Q2Point {
+	intersection(s: Q2Segment) : NoIntersection | Q2Segment | Q2Point {
 		let tpl = PQ2Line.fromQ2Segment(this);
 		let spl = PQ2Line.fromQ2Segment(s);
 		
 		let inter = tpl.intersection(spl);
 		if (inter instanceof PQ2Line) {	// We know that all points are on the same line
-			return new Nothing();	// Todo finish !
+			return new NoIntersection();	// Todo finish !
 		} else if (inter instanceof PQ2Point) {
 			if (inter.isAtInfinity()) {
-				return new Nothing();
+				return new NoIntersection();
 			} else {
 				return new Q2Point(inter.x.divide(inter.w), inter.y.divide(inter.w));
 			}
