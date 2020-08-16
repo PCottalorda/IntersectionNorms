@@ -4,11 +4,13 @@
   "description": "This project, currently in alpha, aims at creating a frontend to experiment with intersection norms on orientable 2-manifolds",
   "main": "index.js",
   "dependencies": {
+    "@flatten-js/core": "^1.2.8",
     "@types/cytoscape": "^3.14.0",
     "@types/node": "^13.7.5",
     "big-rational": "^0.10.9",
     "cytoscape": "^3.14.0",
     "dtslint": "^3.1.0",
+    "flatten-js": "^0.6.9",
     "fp-ts": "^2.6.2",
     "ts-node": "^8.6.2"
   },
